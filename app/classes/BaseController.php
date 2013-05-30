@@ -285,7 +285,7 @@ class BaseController extends RExtController {
 	
 	protected function _logFile($db, $collection) {
 		$logDir = dirname(__ROOT__) . DS . "logs";
-		return $logDir . DS . urlencode($this->_admin) . "-query-" . urlencode($db) . "-" . urlencode($collection) . ".php";
+        return $logDir . DS . urlencode(MServer::serverWithIndex($this->_admin->hostIndex())->mongoName()) . "-query-" . urlencode($db) . "-" . urlencode($collection) . ".php";
 	}
 	
 	/**
